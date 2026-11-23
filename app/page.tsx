@@ -42,7 +42,7 @@ export default function Home() {
     setMessage("");
     const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
     const path = `${session.user.id}/${Date.now()}-${safeName}`;
-    const { error } = await supabase.storage.from("odometer-photos").upload(path, file, {
+    const { error } = await supabase.storage.from("Odometer-photos").upload(path, file, {
       cacheControl: "3600",
       upsert: false,
       contentType: file.type
@@ -50,7 +50,7 @@ export default function Home() {
     setBusy(false);
     setMessage(error ? `فشل رفع الصورة: ${error.message}` : "تم رفع الصورة بنجاح. ستظهر للإدارة بعد ربطها بسجل قراءة العداد.");
     setFile(null);
-    const input = document.getElementById("odometer-photo") as HTMLInputElement | null;
+    const input = document.getElementById("Odometer-photo") as HTMLInputElement | null;
     if (input) input.value = "";
   }
 
